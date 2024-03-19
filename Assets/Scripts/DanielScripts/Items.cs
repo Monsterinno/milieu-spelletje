@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Items : MonoBehaviour
 {
-    public int affect;
+    public float effect;
+    public GameObject planet;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,17 +17,27 @@ public class Items : MonoBehaviour
     {
         
     }
-    void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter(Collision other)
     {
-        if (collision.gameObject.tag != "Player")
+        if (other.gameObject.tag == "Player" && this.gameObject.tag == "GoodItem")
+        {
+            Debug.Log("1: "+planet.GetComponent<TestTemp>().Temp);
+            planet.GetComponent<TestTemp>().Temp = planet.GetComponent<TestTemp>().Temp - effect;
+            Debug.Log("2: "+planet.GetComponent<TestTemp>().Temp);
+            Destroy(this.gameObject);
+        }
+
+        else if (other.gameObject.tag == "Player" && this.gameObject.tag == "BadItem")
+        {
+            Debug.Log("1: "+planet.GetComponent<TestTemp>().Temp);
+            planet.GetComponent<TestTemp>().Temp = planet.GetComponent<TestTemp>().Temp + effect;
+            Debug.Log("2: "+planet.GetComponent<TestTemp>().Temp);
+            Destroy(this.gameObject);
+        }
+
+        else
         {
             return;
-        }
-        else if (collision.gameObject.tag == "Player")
-        {
-            Debug.Log(collision.gameObject.name);
-            Debug.Log(this.gameObject.name + ": " + affect);
-
         }
     }
 }
