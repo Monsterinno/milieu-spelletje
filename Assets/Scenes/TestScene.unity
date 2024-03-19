@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -385,6 +385,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1131309193}
+  jumpHeight: 2
+  jumpDuration: 0.5
 --- !u!1 &1131309193
 GameObject:
   m_ObjectHideFlags: 0
@@ -950,6 +952,7 @@ GameObject:
   - component: {fileID: 5858005889726687723}
   - component: {fileID: 5879600464407772872}
   - component: {fileID: 7351678092823546881}
+  - component: {fileID: 7351678092823546882}
   m_Layer: 0
   m_Name: Sphere.001
   m_TagString: Untagged
@@ -1148,6 +1151,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &7351678092823546882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3101550693635175518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b5577589e0884c47a7c8abb58925c6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Temperatuur: 0
+  TemperatuurSpeed: 1
+  TempDrempelwaarde1: 0
+  TempDrempelwaarde2: 10
+  TempDrempelwaarde3: 20
+  TempDrempelwaarde4: 30
+  blue: {r: 0, g: 0.47058824, b: 0.90588236, a: 1}
+  red: {r: 1, g: 0, b: 0, a: 0}
+  yellow: {r: 1, g: 0.9733098, b: 0, a: 0}
+  orange: {r: 1, g: 0.5684316, b: 0, a: 0}
 --- !u!1 &7471626437226947562
 GameObject:
   m_ObjectHideFlags: 0
