@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RotzooiSpawn : MonoBehaviour
 {
-    public float spawnCd;
+    private float spawnCd;
 
     [SerializeField]
     Transform spawnPart;
@@ -12,25 +12,28 @@ public class RotzooiSpawn : MonoBehaviour
     List<GameObject> items = new List<GameObject>();
     [SerializeField]
     GameObject aarde;
-    
+
+    private bool spawned = false;
     void Start()
     {
-        spawnCd = Random.Range(1, 4);
+        spawnCd = Random.Range(5, 8);
     }
 
     void Spawn()
     {
-        GameObject item = items[Random.Range(0, items.Count + 1)];
+        GameObject item = items[Random.Range(0, items.Count)];
         GameObject b = Instantiate(item, spawnPart.position, spawnPart.rotation);
         b.transform.parent = aarde.transform;
+        spawned = false;
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        if (spawnCd == 0)
+        if (spawnCd <= 0 && !spawned)
         {
+            spawned = true;
+            spawnCd = Random.Range(5, 8);
             Spawn();
-            spawnCd = Random.Range(1, 4);
         }
         spawnCd -= 1 * Time.deltaTime;
     }
